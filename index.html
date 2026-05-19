@@ -1,309 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ogonna Lynda Udechukwu | Data Analyst</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ============================================
+       DESIGN TOKENS — change colours here only
+    ============================================ */
+    :root {
+      --ink:          #1a1814;
+      --cream:        #f5f0e8;
+      --warm-mid:     #e0d8c8;
+      --accent:       #c4622d;
+      --accent-light: #f0ddd3;
+      --muted:        #7a7060;
+      --card-bg:      #ffffff;
+      --radius:       4px;
+    }
+
+    /* ============================================
+       RESET & BASE
+    ============================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ============================================
+       NAVIGATION
+    ============================================ */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 3rem;
+      border-bottom: 1px solid var(--warm-mid);
+      background: var(--cream);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo {
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a {
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ============================================
+       HERO SECTION
+       — TO CUSTOMISE: edit the text inside
+         <section id="about"> further down in the
+         <body>. Your photo goes where it says
+         [YOUR PHOTO HERE].
+    ============================================ */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 240px;
+      gap: 3rem;
+      align-items: center;
+      padding: 5rem 3rem 4rem;
+      border-bottom: 1px solid var(--warm-mid);
+      animation: fadeUp 0.6s ease both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-weight: 300;
+      font-size: 56px;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero-bio {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--muted);
+      max-width: 500px;
+      margin-bottom: 1.75rem;
+    }
+
+    /* ---- SKILLS TAGS ----
+       Add or remove <span> tags below to update your skills */
+    .skills-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 2rem;
+    }
+    .skill-tag {
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 500;
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 5px 13px;
+      border-radius: var(--radius);
+    }
+
+    /* ---- CTA BUTTONS ---- */
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      font-size: 13px;
+      font-family: 'DM Sans', sans-serif;
+      padding: 11px 24px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    .btn-primary {
+      background: var(--ink);
+      color: var(--cream);
+      border: 1.5px solid var(--ink);
+    }
+    .btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--ink);
+      border: 1.5px solid var(--warm-mid);
+    }
+    .btn-ghost:hover { border-color: var(--ink); }
+
+    /* ---- AVATAR / PHOTO BOX ----
+       Replace the initials div with an <img> tag
+       once you have your photo uploaded to GitHub.
+       Example: <img src="image.jpg" alt="Ogonna Lynda" style="width:100%;height:100%;object-fit:cover;border-radius:4px;">
+    */
+    .avatar-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      animation: fadeUp 0.6s 0.15s ease both;
+    }
+    .avatar {
+      width: 200px;
+      height: 200px;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, var(--warm-mid) 0%, var(--accent-light) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Fraunces', serif;
+      font-size: 56px;
+      color: var(--accent);
+      font-weight: 300;
+      position: relative;
+      overflow: hidden;
+    }
+    .avatar::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+    }
+    .contact-links { display: flex; gap: 10px; }
+    .contact-links a {
+      font-size: 12px;
+      color: var(--muted);
+      padding: 5px 12px;
+      border: 1px solid var(--warm-mid);
+      border-radius: var(--radius);
+      transition: all 0.2s;
+    }
+    .contact-links a:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ============================================
+       STATS ROW
+       — Change the numbers/labels inside <div class="stat">
+    ============================================ */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-bottom: 1px solid var(--warm-mid);
+    }
+    .stat {
+      padding: 1.75rem 3rem;
+      border-right: 1px solid var(--warm-mid);
+      animation: fadeUp 0.5s ease both;
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Fraunces', serif;
+      font-size: 40px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+    .stat-label { font-size: 12px; color: var(--muted); letter-spacing: 0.04em; }
+
+    /* ============================================
+       SECTION HEADER
+    ============================================ */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 3rem 3rem 1.5rem;
+    }
+    .section-title {
+      font-family: 'Fraunces', serif;
+      font-size: 32px;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+    }
+    .section-count {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ============================================
+       PROJECT CARDS
+       — Each card is one <div class="project-card">
+         inside <div class="projects-grid">
+    ============================================ */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--warm-mid);
+      margin: 0 3rem;
+      border: 1px solid var(--warm-mid);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .project-card {
+      background: var(--card-bg);
+      padding: 2rem;
+      transition: background 0.2s;
+      position: relative;
+      min-height: 220px;
+    }
+    .project-card:hover { background: #fdfaf5; }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.28s ease;
+    }
+    .project-card:hover::before { transform: scaleX(1); }
+
+    .project-num {
+      font-family: 'Fraunces', serif;
+      font-size: 11px;
+      font-style: italic;
+      color: var(--warm-mid);
+      margin-bottom: 8px;
+    }
+    .project-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 3px 10px;
+      border-radius: var(--radius);
+      margin-bottom: 0.9rem;
+    }
+    .project-title {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 0.65rem;
+      color: var(--ink);
+    }
+    .project-desc {
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      padding-right: 2rem;
+    }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      font-size: 11px;
+      padding: 3px 10px;
+      border: 1px solid var(--warm-mid);
+      border-radius: var(--radius);
+      color: var(--muted);
+    }
+    .project-arrow {
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
+      font-size: 20px;
+      color: var(--warm-mid);
+      transition: color 0.2s, transform 0.2s;
+    }
+    .project-card:hover .project-arrow {
+      color: var(--accent);
+      transform: translate(3px, -3px);
+    }
+
+    /* Coming soon card */
+    .card-soon {
+      background: var(--accent-light) !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .card-soon-plus {
+      font-size: 32px;
+      color: var(--accent);
+      opacity: 0.5;
+    }
+    .card-soon-label {
+      font-family: 'Fraunces', serif;
+      font-size: 16px;
+      color: var(--accent);
+      font-style: italic;
+      text-align: center;
+    }
+    .card-soon-sub { font-size: 12px; color: var(--muted); }
+
+    /* ============================================
+       CONTACT SECTION
+       — Update your email and LinkedIn URL below
+    ============================================ */
+    .contact-section {
+      margin: 4rem 3rem 0;
+      padding: 3rem;
+      background: var(--ink);
+      border-radius: var(--radius);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .contact-left h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 36px;
+      font-weight: 300;
+      color: var(--cream);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .contact-left h2 em { font-style: italic; color: var(--accent); }
+    .contact-left p { font-size: 14px; color: var(--muted); }
+    .contact-right { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-light {
+      background: var(--cream);
+      color: var(--ink);
+      border: 1.5px solid var(--cream);
+    }
+    .btn-light:hover { background: var(--accent); color: var(--cream); border-color: var(--accent); }
+    .btn-outline-light {
+      background: transparent;
+      color: var(--cream);
+      border: 1.5px solid rgba(255,255,255,0.2);
+    }
+    .btn-outline-light:hover { border-color: var(--cream); }
+
+    /* ============================================
+       FOOTER
+    ============================================ */
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      margin-top: 3rem;
+      border-top: 1px solid var(--warm-mid);
+      font-size: 12px;
+      color: var(--muted);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* ============================================
+       RESPONSIVE — mobile friendly
+    ============================================ */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { gap: 1rem; }
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 3rem 1.25rem 2.5rem;
+      }
+      .avatar-box { display: none; } /* hide on mobile */
+      .hero h1 { font-size: 38px; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .stat { padding: 1.25rem; border-right: none; border-bottom: 1px solid var(--warm-mid); }
+      .section-header { padding: 2rem 1.25rem 1rem; }
+      .projects-grid { grid-template-columns: 1fr; margin: 0 1.25rem; }
+      .contact-section { margin: 2rem 1.25rem 0; padding: 2rem; }
+      footer { padding: 1rem 1.25rem; }
+    }
+  </style>
+</head>
+
 <body>
 
-  <h1>Ogonna Lynda Udechukwu</h1>
-
-  <img src="image.jpg" width="150">
-  <p>
-  Data Analyst with  about 2 years of experience using Excel for report automation, SQL for data manipulation and interrogation,
-  Power BI for business intelligence reporting. I am also proficient in statistical analysis, data mining and visualization techniques, 
-    which allows me to uncover valuable insight and identify trends.
-  </p>
-
-  <hr>
-
-  <h2>Project 1</h2>
-
-  <h3>Title</h3>
-  
-  <p>
-  E-commerce Order Analysis:
-    <a href="https://github.com/lynda250/lyndaudechukwu.github.io/raw/refs/heads/main/E-commerce_orders.xlsx">View Excel Dashboard</a>
-  </p>
-
-  <h3>Project Description</h3>
-
-  <p>
-    This project analyzes E-commerce sales performance using Microsoft Excel.
-    The dashboard was built to identify sales patterns, customer behavior, and top performing product.
-    The dashboard include the following features:
-  </p>
-  <ul>
-   <li>Total quantity by product: A breakdown of how many quantities sold by each product.</li>
-
-   <li>Payment method: This compares the different payment method customers used in making payment.</li>
-
-   <li>Total revenue by product: Highlights the total revenue generated by each product.</li>
-
-   <li>Referral sources: Analyze the different customer acquisition channels.</li>
-
-   <li>Order statues by quantity and product: This explains how order statue affects different product and their quantity.</li>
-</ul>
+  <!-- ============================================
+       NAVIGATION
+       — Update links if you add new sections
+  ============================================ -->
+  <nav>
+    <div class="nav-logo">Ogonna<span>.</span></div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
 
-  <h3>Tools Used</h3>
+  <!-- ============================================
+       HERO / ABOUT
+       ✏️  EDIT: your title, bio, skills, links
+  ============================================ -->
+  <section id="about" class="hero">
+    <div>
+      <p class="hero-eyebrow">Data Analyst</p>
 
-  <ul>
-    <li>Microsoft Excel</li>
-    <li>Pivot Tables</li>
-    <li>Pivot Charts</li>
-    <li>Slicers</li>
-    <li>Timeline</li>
-  </ul>
+      <h1>Turning data into<br><em>clear decisions</em></h1>
 
-  <h3>Key Findings</h3>
+      <p class="hero-bio">
+        Data Analyst with 2 years of experience using Excel for report automation,
+        SQL for data manipulation and interrogation, and Power BI for business
+        intelligence reporting. Skilled in statistical analysis, data mining, and
+        visualization techniques that uncover valuable insights and identify trends.
+      </p>
 
-  <ul>
-    <li>Best Selling Products: Printers, tables and chair recorded the highest order quantities and 
-        generated strong revenue compared to other products.</li>
-    <li>Payment Preference: Online payments were the most commonly used payment method, 
-        indicating a growing preference for convenient digital transactions among customers.</li>
-    <li>Order Status Insight: A noticeable number of cancelled and returned orders were identified, 
-        highlighting areas where delivery efficiency and customer satisfaction could be improved.</li>
-    <li>Customer Acquisition Channels: Social media and referral platforms contributed significantly to customer traffic, 
-        showing the importance of digital marketing channels in driving sales.</li>
-    <li>Product Demand Patterns: Certain products consistently performed better across different order statuses, 
-        helping identify high demand items and supporting smarter inventory planning.</li>
-  </ul>
+      <!-- ✏️ ADD or REMOVE skill tags here -->
+      <div class="skills-strip">
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">SQL Server</span>
+        <span class="skill-tag">Microsoft Excel</span>
+        <span class="skill-tag">DAX</span>
+        <span class="skill-tag">Power Query</span>
+        <span class="skill-tag">Pivot Tables</span>
+        <span class="skill-tag">Data Visualization</span>
+        <span class="skill-tag">Statistical Analysis</span>
+      </div>
 
-  <p>This dashboard provide valuable business insight that can support decision making in sales monitoring, 
-      customer behavior analysis, marketing strategy and operation improvement.</p>
+      <div class="cta-row">
+        <a href="#projects" class="btn btn-primary">View My Projects</a>
+        <!-- ✏️ Replace # with your CV link or Google Drive link -->
+        <a href="#" class="file:///C:/Users/Linda%20Ogonna/Downloads/OGONNA%20UDECHUKWU-1.pdf">Download CV</a>
+      </div>
+    </div>
 
-  <h3>Dashboard Overview</h3>
+    <div class="avatar-box">
+      <!--
+        ✏️ PHOTO: Once you upload your photo to GitHub,
+        replace the div below with:
+        <img src="image.jpg" alt="Ogonna Lynda Udechukwu"
+             style="width:200px;height:200px;object-fit:cover;border-radius:4px;">
+      -->
+      <img src="image.jpg" alt="Ogonna Lynda Udechukwu"
+     style="width:200px;height:200px;object-fit:cover;border-radius:4px;">
 
-  <img src="E-commerce.png" width="600">
+      <div class="contact-links">
+        <!-- ✏️ Replace # with your actual LinkedIn and GitHub URLs -->
+        <a href="https://www.linkedin.com/in/udechukwu-ogonna" target="_blank">LinkedIn</a>
+        <a href="https://github.com/lynda250" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       STATS ROW
+       ✏️ EDIT the numbers and labels to match you
+  ============================================ -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">5</div>
+      <div class="stat-label">Projects completed</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Tools mastered</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">2</div>
+      <div class="stat-label">Years experience</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">6+</div>
+      <div class="stat-label">SQL skills applied</div>
+    </div>
+  </div>
+
+
+  <!-- ============================================
+       PROJECTS
+       ✏️ Each project = one <div class="project-card">
+          To add a project: copy one card block and
+          paste it before the "coming soon" card.
+          To remove: delete that card block entirely.
+  ============================================ -->
+  <div id="projects">
+    <div class="section-header">
+      <h2 class="section-title">Selected projects</h2>
+      <span class="section-count">05 works</span>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- ── PROJECT 1 ── -->
+      <div class="project-card">
+        <div class="project-num">01</div>
+        <div class="project-badge">📊 Excel</div>
+        <div class="project-title">E-commerce Order Analysis</div>
+        <p class="project-desc">
+          Sales performance dashboard identifying patterns in customer behavior,
+          top performing products, payment methods, and referral channels using
+          pivot tables and interactive slicers.
+        </p>
+        <div class="project-tags">
+          <span class="tag">Pivot Tables</span>
+          <span class="tag">Pivot Charts</span>
+          <span class="tag">Slicers</span>
+          <span class="tag">Timeline</span>
+        </div>
+        <!-- ✏️ Replace # with your actual GitHub/Excel link -->
+        <a href="https://github.com/lynda250/lyndaudechukwu.github.io/raw/refs/heads/main/E-commerce_orders.xlsx"
+           target="_blank" class="project-arrow">↗</a>
+      </div>
+
+      <!-- ── PROJECT 2 ── -->
+      <div class="project-card">
+        <div class="project-num">02</div>
+        <div class="project-badge">🗄️ SQL</div>
+        <div class="project-title">Workplace Safety Analysis</div>
+        <p class="project-desc">
+          SQL analysis of workplace incident data uncovering operational risks,
+          cost drivers, and injury patterns across plants and departments using
+          aggregation, filtering, and grouping to provide deeper visibility into
+          workplace performance.
+        </p>
+        <div class="project-tags">
+          <span class="tag">SUM / COUNT / AVG</span>
+          <span class="tag">WHERE / BETWEEN</span>
+          <span class="tag">GROUP BY</span>
+          <span class="tag">ORDER BY</span>
+        </div>
+        <a href="https://github.com/lynda250/lyndaudechukwu.github.io/blob/main/workplacesafety.sql"
+           target="_blank" class="project-arrow">↗</a>
+      </div>
+
+      <!-- ── PROJECT 3 ── -->
+      <div class="project-card">
+        <div class="project-num">03</div>
+        <div class="project-badge">🗄️ SQL</div>
+        <div class="project-title">Employee Information Data</div>
+        <p class="project-desc">
+          HR data analysis answering business and workforce questions, retrieving,
+          cleaning, and transforming employee records using advanced SQL techniques
+          including joins, CTEs, and window functions.
+        </p>
+        <div class="project-tags">
+          <span class="tag">CTEs</span>
+          <span class="tag">Window Functions (RANK)</span>
+          <span class="tag">JOINs</span>
+          <span class="tag">Wildcards</span>
+        </div>
+        <a href="https://github.com/lynda250/lyndaudechukwu.github.io/blob/main/Empolyeeinfodata.sql"
+           target="_blank" class="project-arrow">↗</a>
+      </div>
+
+      <!-- ── PROJECT 4 ── -->
+      <div class="project-card">
+        <div class="project-num">04</div>
+        <div class="project-badge">📈 Power BI</div>
+        <div class="project-title">E-commerce Sales & Customer Behaviour</div>
+        <p class="project-desc">
+          Turkey e-commerce dashboard analyzing ₺5M revenue across 2023–2024,
+          identifying high performing categories, understand customer purchasing habit,
+          and track the metrics that matters most in a competitive E-commerce environment.
+        </p>
+        <div class="project-tags">
+          <span class="tag">DAX</span>
+          <span class="tag">Power Query</span>
+          <span class="tag">KPI Tracking</span>
+          <span class="tag">Data Modeling</span>
+        </div>
+        <a href="https://github.com/lynda250/lyndaudechukwu.github.io/raw/refs/heads/main/TR%20E-commernce.pbix"
+           target="_blank" class="project-arrow">↗</a>
+      </div>
+
+      <!-- ── PROJECT 5 ── -->
+      <div class="project-card">
+        <div class="project-num">05</div>
+        <div class="project-badge">📈 Power BI</div>
+        <div class="project-title">Mental Health & Social Media Balance</div>
+        <p class="project-desc">
+          Behavioral analytics report on 500 social media users across 6 platforms, revealing
+          screen time dependency patterns, sleep quality distribution, and weekly
+          exercise habits that signal sedentary lifestyle risks.
+        </p>
+        <div class="project-tags">
+          <span class="tag">Behavioral Analytics</span>
+          <span class="tag">DAX</span>
+          <span class="tag">KPI Cards</span>
+          <span class="tag">Data Visualization</span>
+        </div>
+        <a href="https://github.com/lynda250/lyndaudechukwu.github.io/raw/refs/heads/main/mental%20health%20and%20social%20media%20work.pbix"
+           target="_blank" class="project-arrow">↗</a>
+      </div>
+
+      <!-- ── COMING SOON ── -->
+      <div class="project-card card-soon">
+        <div class="card-soon-plus">+</div>
+        <p class="card-soon-label">More projects coming soon</p>
+        <p class="card-soon-sub">New work in progress</p>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ============================================
+       CONTACT SECTION
+       ✏️ EDIT: your email address and links
+  ============================================ -->
+  <div id="contact" class="contact-section">
+    <div class="contact-left">
+      <h2>Let's work<br><em>together</em></h2>
+      <p>Open to data analyst roles and freelance projects.</p>
+    </div>
+    <div class="contact-right">
+      <!-- ✏️ Replace with your actual email -->
+      <a href="mailto:lyndaudechukwu@gmail.com" class="btn btn-light">Send me an email</a>
+      <a href="https://www.linkedin.com/in/udechukwu-ogonna" target="_blank" class="btn btn-outline-light">LinkedIn</a>
+    </div>
+  </div>
+
+
+  <!-- ============================================
+       FOOTER
+  ============================================ -->
+  <footer>
+    <span>© 2025 Ogonna Lynda Udechukwu</span>
+    <span>Data Analyst</span>
+  </footer>
 
 </body>
-
-
-<hr>
-
-<h2>Project 2</h2>
-
-<h3>Title</h3>
-
-<p>
-  Workplace Safety SQL
-</p>
-
-<h3>SQL Code</h3>
-
-<p>
- <a href="https://github.com/lynda250/lyndaudechukwu.github.io/blob/main/workplacesafety.sql" target="blank">
-   Workplace Safety ddl and dml
- </a>
-</p>
-
-<h3>SQL Skills Used</h3>
-
-<ul>
-  <li>Data Retrieval (SELECT): Queried and extracted specific information from the database.</li>
-  <li>Data Aggregation (SUM, COUNT, Avg): Calculated totals, such as incident cost and counted records to analyze data trends.</li>
-  <li>Data Filtering (WHERE, BETWEEN, IN, AND): Applied filters to select relevant data, including filtering by ranges and lists.</li>
-  <li>Data Source Specification (FROM): Specified the tables used as data sources for retrieval</li>
-  <li>Group By and Order By Clause</li></li>
-</ul>
-
-<h3>Project Description</h3>
-
-<p>
-  This SQL project focused on analyzing workplace safety incident data to uncover operational risks,
-  cost drivers and injury incurred across different plants and department. Using SQL queries, the analysis explored incident frequency,
-  report types, injury location, shift, age group and financial impact to provide deeper visibility into workplace performance.
-</p>
-
-<h3>Technology Used</h3>
-
-<ul>
-  <li>SQL Server</li>
-</ul>
-
-
-<hr>
-
-<h2>Project 3</h2>
-
-<h3>Title</h3>
-
-<p>
- Employee Information Data SQL
-</p>
-
-<h3>SQL Code</h3>
-
-<p>
-  <a href="https://github.com/lynda250/lyndaudechukwu.github.io/blob/main/Empolyeeinfodata.sql" target="blank">
-    Employee info data ddl and dml
-  </a>
-</p>
-
-<h3>SQL Skills Used</h3>
-
-<ul>
-  <li>Data Retrieval (SELECT): Queried and extracted specific information from the database.</li>
-  <li>Data Aggregation (COUNT): Counted records to analyze data trends.</li>
-  <li>Data Filtering (WHERE, BETWEEN, IN, AND): Applied filters to select relevant data, including filtering by ranges and lists.</li>
-  <li>Data Source Specification (FROM): Specified the tables used as data sources for retrieval.</li>
-  <li>Join Operations: joined two tables together.</li>
-  <li>Wildcard Characters(%,"__"): To represent characters.</li>
-  <li>CTEs</li>
-  <li>Group By and Order By Clause</li>
-  <li>Windows function(RANK)</li>
-</ul>
-
-<h3>Project Description</h3>
-
-<p>
-  This SQL project focused on analyzing employee and workforce data to answer common business and HR related questions using SQL queries.
-  The analysis involved retrieving, cleaning, transforming and filtering employee information from multiple tables to generate meaningful insight about employee demographics, 
-  salaries, department and job position.
-</p>
-
-<h3>Technology Used</h3>
-
-<ul>
-  <li>SQL Server</li>
-</ul>
-
-
-  <hr>
-
-  <h2>Project 4</h2>
-
-<h3>Title</h3>
-
-<p>
-  E-commerce Sales & Customer Behavior:
-  <a href="https://github.com/lynda250/lyndaudechukwu.github.io/raw/refs/heads/main/TR%20E-commernce.pbix" target="blank">
-   View Power BI Dashboard
-  </a>
-</p>
-
-  <h3>Project Description</h3>
-
-  <p>
-    This project analyze transaction and behavioral data from Turkey's E-commerce sector to uncover the relationship between customer activity, 
-    purchasing patterns and revenue performance in the year 2023-2024.
-    The dashboard allows stakeholder to identify high performing categories, 
-    understand customer purchasing habits and track the metrics that matter most in a competitive E-commerce environment.
-    The dashboard include the following features:
-  </p>
-
-<ul>
-  <li>Total Sales by Month: A monthly breakdown of the total sales, providing insight into sales trends over time.</li>
-  <li>Revenue by Product: This highlighted the total revenue generated by each product.</li>
-  <li>Revenue by Cities: It shows the total revenue generated by each cities, showcasing performance in different market.</li>
-  <li>Payment Method: This compares the different payment method used by the customers.</li>
-  <li>Delivery Time Days: Displays how long/days it takes to deliver products.</li>
-  <li>Customer Rating: Highlights the rating of the customer from their shopping experience.</li>
-  
-  Additionally, the dashboard include interactive slicer and KPIs:
-  
-  <li>Year: Filter data to view performance for a specific year.</li>
-  <li>Product Category: Drill down into the performance of each product.</li>
-  <li>Gender: Filter data to view performance of each gender.</li>
-  <li>Total Revenue: Calculated the total revenue generated from the sales of products.</li>
-  <li>Total Customer and Quantity: Calculated the total number of customers and the total quantities sold.</li> 
-</ul>
-
-  <h3>Tools Used</h3>
-
-  <ul>
-    <li>Power BI</li>
-    <li>Power Query</li>
-    <li>Dax</li>
-    <li>Kpi Tracking</li>
-    <li>Data Modeling</li>
-    <li>Data Visualization</li>
-  </ul>
-
-  <h3>Key Findings</h3>
-
-  <ul>
-    <li>The E-commerce market generated over ₺5M in revenue,
-        with Electronics emerging as the strongest performing category.</li>
-    <li>Istanbul recorded the highest sales contribution, 
-        reinforcing its position as the primary commercial hub.</li>
-    <li>A significant percentage of customers were returning buyer,
-        indicating strong customer retention and repeat purchase activity.</li>
-    <li>Delivery timelines were largely concentrated within 5-7 days
-        showing relatively stable fulfillment performance across the cities.</li>
-    <li>More than half of all purchase were completed through mobile devices,
-        showing a clear shift toward mobile driven shopping behavior.</li>
-  </ul>
-
-  <p>
-    This dashboard shows a business focused report solution designed to support strategic decisions in marketing,
-    customer engagement and operational planning.
-  </p>
-
-  <h3>Dashboard Overview</h3>
-
-<img src="TR Ecommerce dashboard.png" width="500"><img src="TR Ecommerce 2 dashboard.png" width="500">
-
-
-<body>
-
-  <hr>
-
-  <h2>Project 5</h2>
-
-  <h3>Title</h3>
-
-  <p>
-    Mental Health and Social Media Balance:
-    <a href="https://github.com/lynda250/lyndaudechukwu.github.io/raw/refs/heads/main/mental%20health%20and%20social%20media%20work.pbix" target="blank">
-      View Power BI Dashboard 
-    </a>
-  </p>
-
-  <h3>Project Description</h3>
- 
-  <p>
-    This power BI project is a behavioral analytics report examining how 500 users across 6 social media platform interact with 
-    digital technology and downstream effect on lifestyle indications like sleep,exercise and screen time.
-    The dashboard include the following features:
-  </p>
-
-  <ul>
-    <li>Number of Users by Screen Time(hr): Hours of time users spends on social media daily.</li>
-    <li>Number of Users by Age Group: Different age group and their social media usage.</li>
-    <li>Number of User by Days Without Social Media: Visual representation of how many days users can stay without social media.</li>
-    <li>Number of User by Social Media: This highlights the most frequent social media platform users visits.</li>
-    <li>Number of User by Sleep Quanlity: Displays how many hours of sleep social media users gets daily</li>
-    <li>Number of User by Exercise(per week): This shows how frequent social media user exercise weekly</li>
-  </ul>
-
-  <h3>Tools Used</h3>
-
-  <ul>
-    <li>Power BI</li>
-    <li>Power query</li>
-    <li>Dax</li>
-    <li>Kpi Tracking</li>
-    <li>Data Visualization</li>
-  </ul>
-
-  <h3>Key Findings</h3>
-
-  <ul>
-    <li>Heavy Screen Time Dominates: The majority of users 256 fall in the 4-6hrs/day followed by 204 in the 7-10hrs/day,
-      while Only 40 users report 1-3hrs/day. This means over 92% of the user uses social media for 4+hrs daily, which is a siginificant mental health risk indicator.</li>
-    <li>TikTok Leads Platform Usage: TikTok(95) edges out X/Twitter(88) and LinkedIn(87),with Instagram at bottom(74).
-        This narrow spread suggests users are distributed fairly evenly, though TIkTok and X/Twitter may warrant closer scrutiny given their algorithmically driven and high engagement design.</li>
-    <li>Exercise Frequency is Low for Most Users: The exercise curve peaks at 2-3 sessions/per week(132 and 117 respectively), but drops off significantly beyond 4 sessions.
-        This shows a large portion of users exercise infrequently which when combined with screen time suggests a sedentary lifestyle .</li>
-    <li>Sleep Quality Peaks at 6hrs: The sleep quality curve rises steeply from 2hrs to peak at 120 users around the 6hrs mark, then drops sharply
-         Very few user report 10hrs sleep, suggesting most users cluster around moderate sleep duration potentially disrupted by late night screen use.</li>
-    <li>Most Users Rarely Disconnect: 284 user(57%) went without social for only 0-3 days, while 15 user managed 7-10 days.
-        This points to a high dependency pattern across the users</li>
-  </ul
-
-    <p>This dashboard paints a picture of a digitally dependent population with moderate wellness habit. The most actionable story is the mismatch between high screen time/low disconnection rate
-    and the modest sleep and exercise metrics this suggests that social media usage is likely crowding out healthier behaviors.</p>
-
-  <h3>Dashboard Overview</h3>
-
-  <img src="mental health.png" width="600">
-
-</body>
-
+</html>
