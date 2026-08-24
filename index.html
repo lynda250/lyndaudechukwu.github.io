@@ -218,7 +218,7 @@
 </section>
 
 <div class="stats">
-  <div class="stat"><div class="stat-num">7</div><div class="stat-label">Projects completed</div></div>
+  <div class="stat"><div class="stat-num">8</div><div class="stat-label">Projects completed</div></div>
   <div class="stat"><div class="stat-num">3</div><div class="stat-label">Tools mastered</div></div>
   <div class="stat"><div class="stat-num">2</div><div class="stat-label">Years experience</div></div>
   <div class="stat"><div class="stat-num">6+</div><div class="stat-label">Skills applied</div></div>
@@ -291,6 +291,15 @@
       <div class="project-title">Procurement Performance Analysis</div>
       <p class="project-desc">Three-page dashboard covering executive overview, supplier performance, and risk management. Tracking £908.8M spend across 15 suppliers, 10 departments, and 4 regions.</p>
       <div class="project-tags"><span class="tag">Risk Analytics</span><span class="tag">DAX</span><span class="tag">Star Schema</span><span class="tag">Data Visualization</span></div>
+      <span class="project-arrow">↗</span>
+    </div>
+ 
+    <div class="project-card" onclick="openModal('m8')">
+      <div class="project-num">08</div>
+      <div class="project-badge">📈 Power BI</div>
+      <div class="project-title">B2B Sales &amp; Commercial Performance</div>
+      <p class="project-desc">Built as part of the ZoomCharts 4Ureport Challenge (August 2026 edition),this three-page Power BI dashboard analyzes B2B sales and commercial performance across revenue, profitability, and channel execution.
+      <div class="project-tags"><span class="tag">Drill-through</span><span class="tag">DAX</span><span class="tag">Star Schema</span><span class="tag">Data Visualization</span><span class="tag">KPI Card</span></div>
       <span class="project-arrow">↗</span>
     </div>
     
@@ -574,7 +583,47 @@
     </div>
   </div>
 </div>
-  
+
+   <!-- MODAL 8: PROCUREMENT PERFORMANCE -->
+<div class="modal-overlay" id="m8" onclick="bgClose(event,'m8')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('m8')">✕</button>
+    <div class="modal-inner">
+      <div class="modal-badge-row"><span class="modal-badge">📈 Power BI</span></div>
+      <h2 class="modal-title">B2B Sales &amp; Commercial Performance</h2>
+      <hr class="modal-divider"/>
+  <div class="modal-screenshot">
+    <img src="B2BSales_Overview.png" alt="Executive Overview"
+        style="width:100%; display:block; border-bottom: 2px solid #e0d8c8;"/>
+    <img src="B2BSales_Profitability.png" alt="Consumer &amp; product profitability"
+        style="width:100%; display:block; border-bottom: 2px solid #e0d8c8;"/>
+    <img src="B2BSales_Commercial.png" alt="Commercial Execution"
+        style="width:100%; display:block;"/>
+  </div>
+      <p class="modal-section-label">Project Description</p>
+      <p class="modal-text">This Power BI project is a three-page procurement performance report covering executive overview, supplier performance, and risk management. Built using the FP20 Analytics procurement dataset zoomchart, the dashboard tracks £908.8M in spend across 15 suppliers, 10 departments, and 4 regions. It gives stakeholders a full picture of where money is going, how suppliers are performing, and where financial and operational risk is building up.</p>
+      <p class="modal-section-label">Tools Used</p>
+      <div class="modal-tags">
+        <span class="modal-tag">Power BI</span><span class="modal-tag">Power Query</span>
+        <span class="modal-tag">DAX</span><span class="modal-tag">KPI Tracking</span>
+        <span class="modal-tag">Data Modeling</span><span class="modal-tag">Star Schema</span>
+      </div>
+      <p class="modal-section-label">Key Findings</p>
+      <ul class="modal-findings">
+        <li>Total spend of £908.8M came in under the £1.01B budget, delivering a 10.29% savings rate (£104.27M) across 5,200 purchase orders over 3 years.</li>
+        <li>IT Software dominates category spend at £299.5M nearly double Professional Services at £163.9M making it the highest-leverage area for contract renegotiation.</li>
+        <li>Only 64.13% of deliveries arrived on time, with 35.87% delayed across 1,865 POs and an average lead time of 36.38 days over 5 weeks from order to delivery.</li>
+        <li>Maverick spend reached £98.19M (10.8% of total spend), with Marketing leading all departments at £16.8M in purchasing outside contracted channels.</li>
+        <li>£128.4M sits in overdue invoices (15.52% of POs) with only 31.79% fully paid pointing to serious cash flow and vendor relationship risks.</li>
+        <li>Contract coverage stands at just 64.49%, meaning over a third of spend has no approved contract behind it a compliance and audit exposure the business cannot ignore.</li>
+        <li>Blue Horizon Packaging is the second-largest supplier by spend but scores below the 60.55 average ESG benchmark a red flag for sustainability commitments.</li>
+      </ul>
+      <div class="modal-footer-bar">
+        <a href="https://github.com/lynda250/lyndaudechukwu.github.io/raw/refs/heads/main/FP20_Procurement_data.pbix" target="_blank" class="modal-link">View Power BI Dashboard ↗</a>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- ============================================================
      MODAL JAVASCRIPT
 ============================================================ -->
